@@ -12,7 +12,7 @@
   "ui": "ui.html",
   "networkAccess": {
     "allowedDomains": [
-      "designsystem.conicle.co"
+      "https://cdn.jsdelivr.net/"
     ]
   }
 }

@@ -1,15 +1,105 @@
 <style> 
   @font-face {
       font-family: 'conicle';
-      src: url(https://designsystem.conicle.co/fonts/db_heavent_rounded.0adab8ab.eot?#iefix) format("embedded-opentype"),url(https://designsystem.conicle.co/fonts/db_heavent_rounded.f08e2965.woff2) format("woff2"),url(https://designsystem.conicle.co/fonts/db_heavent_rounded.9180c27c.woff) format("woff"),url(https://designsystem.conicle.co/fonts/db_heavent_rounded.26b5c7f9.ttf) format("truetype");
+      src: url(https://cdn.jsdelivr.net/gh/sthira-conicle/conicle-border-radius@latest/fonts/db_heaventrounded_reg.woff2) format("woff2");
       font-weight: 400;
+      font-weight: normal;
+      font-style: normal;
+  }
+  @font-face {
+      font-family: 'conicle';
+      src: url(https://cdn.jsdelivr.net/gh/sthira-conicle/conicle-border-radius@latest/fonts/db_heaventrounded_med.woff2) format("woff2");
+      font-weight: 500;
+      font-weight: medium;
+      font-style: normal;
+  }
+  @font-face {
+      font-family: 'conicle';
+      src: url(https://cdn.jsdelivr.net/gh/sthira-conicle/conicle-border-radius@latest/fonts/db_heaventrounded_bold.woff2) format("woff2");
+      font-weight: 700;
+      font-weight: bold;
       font-style: normal;
   }
   * {
     font-family: 'conicle';
+    color: #63666E;
   }
+  h1,h2,h3,h4,h5,h6{
+    color: #3E4045;
+    margin: 0;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    height: 100%;
+  }
+  .container{
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    height: 100%;
+    overflow-y: auto;
+    flex: 1 1 auto;
+  }
+  .logo {flex: 0 0 auto;}
+  .toggle-radio {display:flex;}
+  .toggle-radio > input + label:not(:last-of-type) {border-right:none;}
+  .toggle-radio > input:checked + label {background:hsl(7, 100%, 97%); color:#FF2E38; border:1px solid #FFB8AE;}
+  .toggle-radio > input:checked + label + input + label {border-left:none;}
+  .toggle-radio > input + label:first-of-type {border-top-left-radius: 999px; border-bottom-left-radius: 999px;}
+  .toggle-radio > input + label:last-of-type {border-top-right-radius: 999px; border-bottom-right-radius: 999px;}
+  .toggle-radio > input[type='radio'] {display:none;}
+  .toggle-radio > input[disabled] + label {opacity:0.50;}
+  .toggle-radio > input[disabled] + label:hover {cursor:not-allowed;}
+  .toggle-radio > input + label {border:1px solid #EBECF0; flex: 1 1 0; display:block; text-align: center; padding:4px 8px; font-weight: 500;}
+  .toggle-radio > input:hover + label:hover {background-color: #F7F7F8;}
+  .toggle-radio > input:checked:hover + label {background-color: #FFDBD4;}
+  .checkbox {
+    border: 1px solid #EBECF0;
+    width: 1.15em;
+    height: 1.15em;
+    accent-color:#FF2E38;
+    transform: translateY(3px);
+  }
+  .footer {
+    padding: 12px 16px;
+    flex: 0 0 auto;
+    display: flex;
+    gap: 8px;
+  }
+  button {
+    border:none;
+    border-radius: 999px;
+    padding:8px 12px;
+    font-weight: 500;
+    flex: 1 1 0;
+  }
+  button.primary {
+    background-color: #FF2E38;
+    color: #fff;
+  }
+  button.primary:hover, button.primary:active {
+    background-color: #DF001F;
+    color: #fff;
+  }
+  button.dismissive {
+    background-color: #fff;
+    color: #63666E;
+    border:1px solid #EBECF0;
+  }
+  button.dismissive:hover, button.dismissive:active {
+    background-color: #F7F7F8;
+  }
+
 </style>
-<svg width="151.7" height="40.0" viewBox="0 0 1517 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+<div class="container">
+<div class="header">
+<svg class="logo" width="53.095" height="14.0" viewBox="0 0 1517 400" fill="none" xmlns="http://www.w3.org/2000/svg">
   <g clip-path="url(#clip0_73_2233)">
   <path d="M870.86 388.1C851.63 388.1 836.57 372.91 836.57 353.52L836.56 173.79C836.56 154.64 851.62 139.64 870.85 139.64C890.08 139.64 905.14 154.64 905.14 173.79L905.15 353.52C905.15 372.9 890.08 388.1 870.86 388.1ZM870.86 124.68C849.56 124.68 832.24 107.35 832.24 86.0599C832.24 64.7599 849.57 47.4399 870.86 47.4399C892.16 47.4399 909.48 64.7699 909.48 86.0599C909.48 107.35 892.15 124.68 870.86 124.68Z" fill="#FF2E38"/>
   <path d="M1059.67 388.5C1025.38 388.5 993.75 375.62 970.6 352.23C947.67 329.06 935.05 297.69 935.05 263.88C935.05 230.08 947.68 198.7 970.6 175.53C993.75 152.14 1025.38 139.26 1059.67 139.26C1095.51 139.26 1130.27 154.05 1150.38 177.87C1156.35 185.03 1159.75 193.45 1159.75 201.01C1159.75 219.52 1145.24 233.48 1125.99 233.48C1113.28 233.48 1106.01 227.18 1100.16 222.12L1098.61 220.78L1098.32 220.5C1087.35 209.53 1074.71 204.2 1059.68 204.2C1028.39 204.2 1003.88 230.41 1003.88 263.88C1003.88 296.79 1028.91 323.56 1059.68 323.56C1079.31 323.56 1091.95 313.44 1097.74 307.41L1098.09 307.04L1098.48 306.71C1099.12 306.16 1099.76 305.6 1100.39 305.05C1106.28 299.87 1113.62 293.42 1125.99 293.42C1145.24 293.42 1159.75 307.75 1159.75 326.75C1159.75 334.18 1156.22 342.53 1150.3 349.13C1129.82 373.79 1095.96 388.5 1059.67 388.5Z" fill="#FF2E38"/>
@@ -24,26 +114,35 @@
   </clipPath>
   </defs>
 </svg>
-<h2>Corner rounder</h2>
-<p>Count: <input id="count" value="5"></p>
-<button id="create">Create</button>
-<button id="round">Round it!</button>
-<button id="cancel">Cancel</button>
+<h2 class="heading">Corner rounder</h2>
+</div>
+<div class="toggle-radio">
+  <input type="radio" name="style" id="style-option1" value="user" checked>
+  <label for="style-option1">User</label>
+
+  <input type="radio" name="style" id="style-option2" value="admin">
+  <label for="style-option2">Admin</label>
+</div>
+<div class="option-section">
+  <input class="checkbox" type="checkbox" name="nested" id="nested">
+  <label class="checkbox-label" for="nested">Compensate for nested elements</label><br>
+  <input class="checkbox" type="checkbox" name="children" id="children">
+  <label class="checkbox-label" for="children">Also apply to children elements</label>
+</div>
+</div>
+<div class="footer">
+  <button id="close" class="dismissive">Close</button>
+  <button id="round" class="primary">Round it!</button>
+</div>
 <script>
 
-document.getElementById('create').onclick = () => {
-  const textbox = document.getElementById('count');
-  const count = parseInt(textbox.value, 10);
-  parent.postMessage({ pluginMessage: { type: 'create-rectangles', count } }, '*')
-}
-
 document.getElementById('round').onclick = () => {
-  parent.postMessage({ pluginMessage: { type: 'round-border' } }, '*')
+  let style = document.querySelector('input[name="style"]:checked').value;
+  parent.postMessage({ pluginMessage: { type: 'round-border', style: style }}, '*')
 }
 
-
-document.getElementById('cancel').onclick = () => {
-  parent.postMessage({ pluginMessage: { type: 'cancel' } }, '*')
+document.getElementById('close').onclick = () => {
+  parent.postMessage({ pluginMessage: { type: 'close' } }, '*')
 }
 
 </script>
