@@ -84,7 +84,7 @@ figma.ui.onmessage =  (msg: {type: string, style: string}) => {
               }
           }
           if (msg.nested = true)
-            figma. node.fills[0].color.r = 10;
+            node.fills[0].color.r = 10;
       }
     }
   
