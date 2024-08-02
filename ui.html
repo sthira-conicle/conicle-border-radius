@@ -125,9 +125,9 @@
 </div>
 <div class="option-section">
   <input class="checkbox" type="checkbox" name="nested" id="nested">
-  <label class="checkbox-label" for="nested">Compensate for nested elements</label><br>
+  <label class="checkbox-label" for="nested">Is nested element</label><br>
   <input class="checkbox" type="checkbox" name="children" id="children">
-  <label class="checkbox-label" for="children">Also apply to children elements</label>
+  <label class="checkbox-label" for="children">Apply to children elements</label>
 </div>
 </div>
 <div class="footer">
@@ -138,7 +138,7 @@
 
 document.getElementById('round').onclick = () => {
   let style = document.querySelector('input[name="style"]:checked').value;
-  parent.postMessage({ pluginMessage: { type: 'round-border', style: style }}, '*')
+  parent.postMessage({ pluginMessage: { type: 'round-border', style: style, nested: nested }}, '*')
 }
 
 document.getElementById('close').onclick = () => {
