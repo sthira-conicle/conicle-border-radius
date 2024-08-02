@@ -12,7 +12,7 @@ figma.showUI(
   { width: 300, height: 320, title: "Corner rounder" }
 )
 
-figma.ui.onmessage =  (msg: {type: string, style: string, nested: boolean}) => {
+figma.ui.onmessage =  (msg: {type: string, style: string, nested: string}) => {
   // One way of distinguishing between different types of messages sent from
   // your HTML page is to use an object with a "type" property like this.
   if (msg.type === 'round-border') {
