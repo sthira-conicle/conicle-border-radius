@@ -20,13 +20,61 @@
       font-weight: bold;
       font-style: normal;
   }
+  :root {
+    --color-cool-grey-50: #F7F7F8;
+    --color-cool-grey-100: #EBECF0;
+    --color-cool-grey-200: #DBDDE3;
+    --color-cool-grey-300: #C6C9D2;
+    --color-cool-grey-400: #AEB2BB;
+    --color-cool-grey-500: #9296A0;
+    --color-cool-grey-600: #797D86;
+    --color-cool-grey-700: #63666E;
+    --color-cool-grey-800: #4F5259;
+    --color-cool-grey-900: #3E4045;
+    --color-cool-grey-925: #2E3033;
+    --color-cool-grey-950: #212224;
+    --color-cool-grey-975: #161617;
+
+    --color-primary-50: #FFF1EF;
+    --color-primary-100: #FFDBD4;
+    --color-primary-200: #FFB8AE;
+    --color-primary-300: #FF8D84;
+    --color-primary-400: #FF5E5C;
+    --color-primary-500: #FF2E38;
+    --color-primary-600: #DF001F;
+    --color-primary-700: #BC000E;
+    --color-primary-800: #98000B;
+    --color-primary-900: #740610;
+    --color-primary-925: #521313;
+    --color-primary-950: #351412;
+    --color-primary-975: #1E100F;
+
+    --color-secondary-50: #EFF7FF;
+    --color-secondary-100: #D6ECFF;
+    --color-secondary-200: #B1DCFF;
+    --color-secondary-300: #88C4FF;
+    --color-secondary-400: #60A7FF;
+    --color-secondary-500: #3D87FF;
+    --color-secondary-600: #266EE1;
+    --color-secondary-700: #1658BF;
+    --color-secondary-800: #11479A;
+    --color-secondary-900: #123874;
+    --color-secondary-925: #142B51;
+    --color-secondary-950: #131F33;
+    --color-secondary-975: #0F141D;
+  }
   * {
     font-family: 'conicle';
-    color: #63666E;
+    color: var(--color-cool-grey-700);
   }
   h1,h2,h3,h4,h5,h6{
-    color: #3E4045;
+    color: var(--color-cool-grey-900);
     margin: 0;
+    font-weight: 500;
+  }
+  h5,h6{
+    font-weight: 400;
+    color: var(--color-cool-grey-500);
   }
   body {
     margin: 0;
@@ -49,21 +97,20 @@
   .logo {flex: 0 0 auto;}
   .toggle-radio {display:flex;}
   .toggle-radio > input + label:not(:last-of-type) {border-right:none;}
-  .toggle-radio > input:checked + label {background:hsl(7, 100%, 97%); color:#FF2E38; border:1px solid #FFB8AE;}
+  .toggle-radio > input:checked + label {background:var(--color-primary-50); color:var(--color-primary-500); border:1px solid var(--color-primary-200);}
   .toggle-radio > input:checked + label + input + label {border-left:none;}
   .toggle-radio > input + label:first-of-type {border-top-left-radius: 999px; border-bottom-left-radius: 999px;}
   .toggle-radio > input + label:last-of-type {border-top-right-radius: 999px; border-bottom-right-radius: 999px;}
   .toggle-radio > input[type='radio'] {display:none;}
   .toggle-radio > input[disabled] + label {opacity:0.50;}
   .toggle-radio > input[disabled] + label:hover {cursor:not-allowed;}
-  .toggle-radio > input + label {border:1px solid #EBECF0; flex: 1 1 0; display:block; text-align: center; padding:4px 8px; font-weight: 500;}
-  .toggle-radio > input:hover + label:hover {background-color: #F7F7F8;}
-  .toggle-radio > input:checked:hover + label {background-color: #FFDBD4;}
+  .toggle-radio > input + label {border:1px solid var(--color-cool-grey-100); flex: 1 1 0; display:block; text-align: center; padding:4px 8px; font-weight: 500;}
+  .toggle-radio > input:hover + label:hover {background-color: var(--color-cool-grey-50);}
+  .toggle-radio > input:checked:hover + label {background-color: var(--color-primary-100);}
   .checkbox {
-    border: 1px solid #EBECF0;
     width: 1.15em;
     height: 1.15em;
-    accent-color:#FF2E38;
+    accent-color:var(--color-primary-500);
     transform: translateY(3px);
   }
   .footer {
@@ -80,22 +127,78 @@
     flex: 1 1 0;
   }
   button.primary {
-    background-color: #FF2E38;
+    background-color: var(--color-primary-500);
     color: #fff;
   }
   button.primary:hover, button.primary:active {
-    background-color: #DF001F;
+    background-color: var(--color-primary-600);
     color: #fff;
   }
   button.dismissive {
     background-color: #fff;
-    color: #63666E;
-    border:1px solid #EBECF0;
+    color: var(--color-cool-grey-700);
+    border:1px solid var(--color-cool-grey-100);
   }
   button.dismissive:hover, button.dismissive:active {
-    background-color: #F7F7F8;
+    background-color: var(--color-cool-grey-50);
   }
-
+  .corner-select-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .corner-select-box {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 2px;
+    width: 32px;
+    height: 32px;
+  }
+  .corner-select {
+    appearance: none;
+    -webkit-appearance: none;
+    margin: 0;
+    padding: 0;
+    display: block;
+    background-color: var(--color-cool-grey-50);
+    border-color: var(--color-cool-grey-200);
+    border-style: solid;
+    border-width: 0;
+  }
+  .corner-select:hover {
+    background-color: var(--color-cool-grey-100);
+  }
+  .corner-select:checked {
+    background-color: var(--color-primary-50);
+    border-color: var(--color-primary-500);
+  }
+  .corner-select:checked:hover {
+    background-color: var(--color-primary-100);
+  }
+  .corner-select.top-left, .corner-select.top-right {
+    border-top-width: 1px;
+  }
+  .corner-select.bottom-left, .corner-select.bottom-right {
+    border-bottom-width: 1px;
+  }
+  .corner-select.top-left, .corner-select.bottom-left {
+    border-left-width: 1px;
+  }
+  .corner-select.top-right, .corner-select.bottom-right {
+    border-right-width: 1px;
+  }
+  .corner-select.top-left {
+    border-top-left-radius: 6px;
+  }
+  .corner-select.top-right {
+    border-top-right-radius: 6px;
+  }
+  .corner-select.bottom-left {
+    border-bottom-left-radius: 6px;
+  }
+  .corner-select.bottom-right {
+    border-bottom-right-radius: 6px;
+  }
 </style>
 <div class="container">
 <div class="header">
@@ -123,7 +226,15 @@
   <input type="radio" name="style" id="style-option2" value="admin">
   <label for="style-option2">Admin</label>
 </div>
+<div class="corner-select-section">
+  <h5>Corners</h5>
+  <div class="corner-select-box">
+    <input type="checkbox" class="corner-select top-left"><input type="checkbox" class="corner-select top-right">
+    <input type="checkbox" class="corner-select bottom-left"><input type="checkbox" class="corner-select bottom-right">
+  </div>
+</div>
 <div class="option-section">
+  <h5>Options</h5>
   <input class="checkbox" type="checkbox" name="nested" id="nested">
   <label class="checkbox-label" for="nested">Is nested element</label><br>
   <input class="checkbox" type="checkbox" name="children" id="children">
@@ -138,7 +249,8 @@
 
 document.getElementById('round').onclick = () => {
   let style = document.querySelector('input[name="style"]:checked').value;
-  parent.postMessage({ pluginMessage: { type: 'round-border', style: style, nested: nested }}, '*')
+  let nested = document.querySelector('input[name="nested"]').checked;
+  parent.postMessage({ pluginMessage: { type: 'round-border', style: style , nested: nested }}, '*')
 }
 
 document.getElementById('close').onclick = () => {
