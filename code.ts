@@ -1,7 +1,7 @@
 // This shows the HTML page in "ui.html".
 figma.showUI(
   __html__,
-  { width: 300, height: 360, title: "Corner rounder" }
+  { width: 280, height: 360, title: "Corner rounder" }
 )
 
 let radiusVariables = [];
