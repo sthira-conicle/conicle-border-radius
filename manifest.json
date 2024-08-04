@@ -14,5 +14,6 @@
     "allowedDomains": [
       "https://cdn.jsdelivr.net/"
     ]
-  }
+  },
+  "permissions": ["teamlibrary"]
 }

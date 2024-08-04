@@ -97,15 +97,15 @@
     flex: 1 1 auto;
   }
   .logo {flex: 0 0 auto;}
-  .platform-section {display:flex;}
-  .platform-section > input[type='radio'] {display:none;}
-  .platform-section > input + label {border:1px solid var(--color-cool-grey-100); flex: 1 1 0; display:block; text-align: center; padding:8px 12px; font-weight: 500;}
-  .platform-section > input:hover + label {background-color: var(--color-cool-grey-50);}
-  .platform-section > input:checked + label {background:var(--color-primary-50); color:var(--color-primary-500); border:1px solid var(--color-primary-200); z-index: 99;}
-  .platform-section > input:checked:hover + label {background-color: var(--color-primary-100);}
-  .platform-section > input + label {margin-left: -0.5px; margin-right: -0.5px;}
-  .platform-section > input + label:first-of-type {margin-left: 0; border-top-left-radius: 999px; border-bottom-left-radius: 999px;}
-  .platform-section > input + label:last-of-type {margin-right: 0; border-top-right-radius: 999px; border-bottom-right-radius: 999px;}
+  .style-section {display:flex;}
+  .style-section > input[type='radio'] {display:none;}
+  .style-section > input + label {border:1px solid var(--color-cool-grey-100); flex: 1 1 0; display:block; text-align: center; padding:8px 12px; font-weight: 500;}
+  .style-section > input:hover + label {background-color: var(--color-cool-grey-50);}
+  .style-section > input:checked + label {background:var(--color-primary-50); color:var(--color-primary-500); border:1px solid var(--color-primary-200); z-index: 99;}
+  .style-section > input:checked:hover + label {background-color: var(--color-primary-100);}
+  .style-section > input + label {margin-left: -0.5px; margin-right: -0.5px;}
+  .style-section > input + label:first-of-type {margin-left: 0; border-top-left-radius: 999px; border-bottom-left-radius: 999px;}
+  .style-section > input + label:last-of-type {margin-right: 0; border-top-right-radius: 999px; border-bottom-right-radius: 999px;}
   .footer {
     padding: 12px 16px;
     flex: 0 0 auto;
@@ -274,22 +274,32 @@
 </svg>
 <h2 class="heading">Corner rounder</h2>
 </div>
-<div class="platform-section">
-  <input type="radio" name="style" id="style-option1" value="user" checked>
-  <label for="style-option1">User</label>
-  <input type="radio" name="style" id="style-option2" value="admin">
-  <label for="style-option2">Admin</label>
+<div class="style-section">
+  <input type="radio" name="style" id="style-user" value="user" checked>
+  <label for="style-user">User</label>
+  <input type="radio" name="style" id="style-admin" value="admin">
+  <label for="style-admin">Admin</label>
 </div>
 <div class="section-container">
   <div class="corner-select-section">
     <h5>Corners</h5>
     <div class="corner-select-box">
-      <input type="checkbox" class="corner-select top-left" name="corner" id="corner-top-left" value="top-left" checked><input type="checkbox" class="corner-select top-right" name="corner" id="corner-top-right" value="top-right" checked>
-      <input type="checkbox" class="corner-select bottom-left" name="corner" id="corner-bottom-left" value="bottom-left" checked><input type="checkbox" class="corner-select bottom-right" name="corner" id="corner-bottom-right" value="bottom-right" checked>
+      <input type="checkbox" class="corner-select top-left" name="corner-top-left" id="corner-top-left" checked><input type="checkbox" class="corner-select top-right" name="corner-top-right" id="corner-top-right" checked>
+      <input type="checkbox" class="corner-select bottom-left" name="corner-bottom-left" id="corner-bottom-left" checked><input type="checkbox" class="corner-select bottom-right" name="corner-bottom-right" id="corner-bottom-right" checked>
     </div>
   </div>
   <div class="option-section">
     <h5>Options</h5>
+    <input type="checkbox" name="variable" id="variable" checked>
+    <label for="variable">
+      <div class="toggle-button">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7.625 1.22687L11.6872 3.57217C12.0739 3.79546 12.3122 4.20812 12.3122 4.6547V9.3453C12.3122 9.79188 12.0739 10.2045 11.6872 10.4278L7.625 12.7731C7.23825 12.9964 6.76175 12.9964 6.375 12.7731L2.31282 10.4278C1.92607 10.2045 1.68782 9.79188 1.68782 9.3453V4.6547C1.68782 4.20812 1.92607 3.79546 2.31282 3.57217L6.375 1.22687C6.76175 1.00358 7.23825 1.00358 7.625 1.22687Z" stroke="var(--color2)" stroke-width="1.5"/>
+          <circle cx="7" cy="7" r="1.5" fill="var(--color2)"/>
+        </svg>                      
+      </div>
+      Set as variable
+    </label>
     <input type="checkbox" name="nested" id="nested">
     <label for="nested">
       <div class="toggle-button">
@@ -314,6 +324,15 @@
       </div>     
       Apply to all children
     </label>
+    <input type="checkbox" name="override" id="override">
+    <label for="override">
+      <div class="toggle-button">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="7" y="0.283316" width="9.5" height="9.5" rx="1.25" transform="rotate(45 7 0.283316)" stroke="var(--color2)" stroke-width="1.5"/>
+        </svg>                              
+      </div>     
+      Override instances
+    </label>
   </div>
 </div>
 </div>
@@ -325,8 +344,12 @@
 
 document.getElementById('round').onclick = () => {
   let style = document.querySelector('input[name="style"]:checked').value;
+  let corners = [document.querySelector('input[name="corner-top-left"]').checked, document.querySelector('input[name="corner-top-right"]').checked, document.querySelector('input[name="corner-bottom-left"]').checked, document.querySelector('input[name="corner-bottom-right"]').checked];
+  let variable = document.querySelector('input[name="variable"]').checked;
   let nested = document.querySelector('input[name="nested"]').checked;
-  parent.postMessage({ pluginMessage: { type: 'round-border', style: style , nested: nested }}, '*')
+  let children = document.querySelector('input[name="children"]').checked;
+  let override = document.querySelector('input[name="override"]').checked;
+  parent.postMessage({ pluginMessage: { type: 'round-border', style: style, corners: corners, variable: variable, nested: nested, children: children, override: override }}, '*')
 }
 
 document.getElementById('close').onclick = () => {
