@@ -21,6 +21,7 @@
       font-style: normal;
   }
   :root {
+    font-size: 14px;
     --color-cool-grey-50: #F7F7F8;
     --color-cool-grey-100: #EBECF0;
     --color-cool-grey-200: #DBDDE3;
@@ -63,11 +64,13 @@
     --color-secondary-950: #131F33;
     --color-secondary-975: #0F141D;
   }
-  * {
-    font-family: 'conicle';
+  body,div,p,span,input,button {
+    font-size: 1rem;
+    font-family: 'conicle', sans-serif;
     color: var(--color-cool-grey-700);
+    line-height: 1.5;
   }
-  h1,h2,h3,h4,h5,h6{
+  h1,h2,h3,h4,h5,h6 {
     color: var(--color-cool-grey-900);
     margin: 0;
     font-weight: 500;
@@ -79,7 +82,6 @@
   body {
     margin: 0;
     padding: 0;
-    font-size: 14px;
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -89,30 +91,21 @@
     padding: 16px;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 16px;
     height: 100%;
     overflow-y: auto;
     flex: 1 1 auto;
   }
   .logo {flex: 0 0 auto;}
-  .toggle-radio {display:flex;}
-  .toggle-radio > input + label:not(:last-of-type) {border-right:none;}
-  .toggle-radio > input:checked + label {background:var(--color-primary-50); color:var(--color-primary-500); border:1px solid var(--color-primary-200);}
-  .toggle-radio > input:checked + label + input + label {border-left:none;}
-  .toggle-radio > input + label:first-of-type {border-top-left-radius: 999px; border-bottom-left-radius: 999px;}
-  .toggle-radio > input + label:last-of-type {border-top-right-radius: 999px; border-bottom-right-radius: 999px;}
-  .toggle-radio > input[type='radio'] {display:none;}
-  .toggle-radio > input[disabled] + label {opacity:0.50;}
-  .toggle-radio > input[disabled] + label:hover {cursor:not-allowed;}
-  .toggle-radio > input + label {border:1px solid var(--color-cool-grey-100); flex: 1 1 0; display:block; text-align: center; padding:4px 8px; font-weight: 500;}
-  .toggle-radio > input:hover + label:hover {background-color: var(--color-cool-grey-50);}
-  .toggle-radio > input:checked:hover + label {background-color: var(--color-primary-100);}
-  .checkbox {
-    width: 1.15em;
-    height: 1.15em;
-    accent-color:var(--color-primary-500);
-    transform: translateY(3px);
-  }
+  .platform-section {display:flex;}
+  .platform-section > input[type='radio'] {display:none;}
+  .platform-section > input + label {border:1px solid var(--color-cool-grey-100); flex: 1 1 0; display:block; text-align: center; padding:8px 12px; font-weight: 500;}
+  .platform-section > input:hover + label {background-color: var(--color-cool-grey-50);}
+  .platform-section > input:checked + label {background:var(--color-primary-50); color:var(--color-primary-500); border:1px solid var(--color-primary-200); z-index: 99;}
+  .platform-section > input:checked:hover + label {background-color: var(--color-primary-100);}
+  .platform-section > input + label {margin-left: -0.5px; margin-right: -0.5px;}
+  .platform-section > input + label:first-of-type {margin-left: 0; border-top-left-radius: 999px; border-bottom-left-radius: 999px;}
+  .platform-section > input + label:last-of-type {margin-right: 0; border-top-right-radius: 999px; border-bottom-right-radius: 999px;}
   .footer {
     padding: 12px 16px;
     flex: 0 0 auto;
@@ -137,22 +130,26 @@
   button.dismissive {
     background-color: #fff;
     color: var(--color-cool-grey-700);
-    border:1px solid var(--color-cool-grey-100);
+    border: none;
   }
   button.dismissive:hover, button.dismissive:active {
     background-color: var(--color-cool-grey-50);
   }
-  .corner-select-section {
+  .section-container {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+  }
+  .corner-select-section, .option-section {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 8px;
   }
   .corner-select-box {
     display: grid;
     grid-template-columns: auto auto;
-    gap: 2px;
-    width: 32px;
-    height: 32px;
+    width: 52px;
+    height: 52px;
   }
   .corner-select {
     appearance: none;
@@ -160,44 +157,102 @@
     margin: 0;
     padding: 0;
     display: block;
-    background-color: var(--color-cool-grey-50);
-    border-color: var(--color-cool-grey-200);
-    border-style: solid;
-    border-width: 0;
+    border: 1px solid var(--color-cool-grey-100);
+    padding: 4px;
+  }
+  .corner-select::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0 solid var(--color-cool-grey-500);
+    box-sizing: border-box;
+  }
+  .corner-select:checked::before {
+    border-color: var(--color-primary-500);
   }
   .corner-select:hover {
-    background-color: var(--color-cool-grey-100);
+    background-color: var(--color-cool-grey-50);
   }
   .corner-select:checked {
     background-color: var(--color-primary-50);
-    border-color: var(--color-primary-500);
+    border-color: var(--color-primary-200);
+    z-index: 99;
   }
   .corner-select:checked:hover {
     background-color: var(--color-primary-100);
   }
-  .corner-select.top-left, .corner-select.top-right {
-    border-top-width: 1px;
-  }
-  .corner-select.bottom-left, .corner-select.bottom-right {
-    border-bottom-width: 1px;
-  }
-  .corner-select.top-left, .corner-select.bottom-left {
-    border-left-width: 1px;
-  }
-  .corner-select.top-right, .corner-select.bottom-right {
-    border-right-width: 1px;
-  }
   .corner-select.top-left {
     border-top-left-radius: 6px;
+    margin-right: -0.5px;
+    margin-bottom: -0.5px;
   }
   .corner-select.top-right {
     border-top-right-radius: 6px;
+    margin-left: -0.5px;
+    margin-bottom: -0.5px;
   }
   .corner-select.bottom-left {
     border-bottom-left-radius: 6px;
+    margin-right: -0.5px;
+    margin-top: -0.5px;
   }
   .corner-select.bottom-right {
     border-bottom-right-radius: 6px;
+    margin-left: -0.5px;
+    margin-top: -0.5px;
+  }
+  .corner-select.top-left::before {
+    border-top-left-radius: 4px;
+    border-top-width: 1.5px;
+    border-left-width: 1.5px;
+  }
+  .corner-select.top-right::before {
+    border-top-right-radius: 4px;
+    border-top-width: 1.5px;
+    border-right-width: 1.5px;
+  }
+  .corner-select.bottom-left::before {
+    border-bottom-left-radius: 4px;
+    border-bottom-width: 1.5px;
+    border-left-width: 1.5px;
+  }
+  .corner-select.bottom-right::before {
+    border-bottom-right-radius: 4px;
+    border-bottom-width: 1.5px;
+    border-right-width: 1.5px;
+  }
+  .option-section label {
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+    align-items: flex-start;
+  }
+  .option-section input[type='checkbox'] {
+    display: none;
+  }
+  .toggle-button {
+    padding: 3px;
+    border: 1px solid var(--color-cool-grey-100);
+    border-radius: 4px;
+  }
+  label:hover .toggle-button {
+    background-color: var(--color-cool-grey-50);
+  }
+  input:checked + label .toggle-button {
+    background-color: var(--color-primary-50);
+    border-color: var(--color-primary-200);
+  }
+  input:checked + label:hover .toggle-button {
+    background-color: var(--color-primary-100);
+  }
+  .toggle-button svg{
+    --color1: var(--color-cool-grey-300);
+    --color2: var(--color-cool-grey-500);
+  }
+  input:checked + label .toggle-button svg{
+    --color1: var(--color-primary-300);
+    --color2: var(--color-primary-500);
   }
 </style>
 <div class="container">
@@ -219,26 +274,47 @@
 </svg>
 <h2 class="heading">Corner rounder</h2>
 </div>
-<div class="toggle-radio">
+<div class="platform-section">
   <input type="radio" name="style" id="style-option1" value="user" checked>
   <label for="style-option1">User</label>
-
   <input type="radio" name="style" id="style-option2" value="admin">
   <label for="style-option2">Admin</label>
 </div>
-<div class="corner-select-section">
-  <h5>Corners</h5>
-  <div class="corner-select-box">
-    <input type="checkbox" class="corner-select top-left"><input type="checkbox" class="corner-select top-right">
-    <input type="checkbox" class="corner-select bottom-left"><input type="checkbox" class="corner-select bottom-right">
+<div class="section-container">
+  <div class="corner-select-section">
+    <h5>Corners</h5>
+    <div class="corner-select-box">
+      <input type="checkbox" class="corner-select top-left" name="corner" id="corner-top-left" value="top-left" checked><input type="checkbox" class="corner-select top-right" name="corner" id="corner-top-right" value="top-right" checked>
+      <input type="checkbox" class="corner-select bottom-left" name="corner" id="corner-bottom-left" value="bottom-left" checked><input type="checkbox" class="corner-select bottom-right" name="corner" id="corner-bottom-right" value="bottom-right" checked>
+    </div>
   </div>
-</div>
-<div class="option-section">
-  <h5>Options</h5>
-  <input class="checkbox" type="checkbox" name="nested" id="nested">
-  <label class="checkbox-label" for="nested">Is nested element</label><br>
-  <input class="checkbox" type="checkbox" name="children" id="children">
-  <label class="checkbox-label" for="children">Apply to children elements</label>
+  <div class="option-section">
+    <h5>Options</h5>
+    <input type="checkbox" name="nested" id="nested">
+    <label for="nested">
+      <div class="toggle-button">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M13.5 1.25H12C6.06294 1.25 1.25 6.06294 1.25 12V13.5" stroke="var(--color1)" stroke-width="1.5"/>
+          <circle cx="4.40039" cy="4.40234" r="1.5" fill="var(--color1)"/>
+          <path d="M8.46577 8.4687L4.40039 4.40234" stroke="var(--color1)" stroke-width="1.5"/>
+          <path d="M13.5 7H12C9.23858 7 7 9.23858 7 12V13.5" stroke="var(--color2)" stroke-width="1.5"/>
+          <circle cx="8.46582" cy="8.46875" r="1.5" fill="var(--color2)"/>
+        </svg>            
+      </div>
+      Is inner corner
+    </label>
+    <input type="checkbox" name="children" id="children">
+    <label for="children">
+      <div class="toggle-button">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 3.75H11C12.2426 3.75 13.25 4.75736 13.25 6V12C13.25 12.6904 12.6904 13.25 12 13.25H6C4.75736 13.25 3.75 12.2426 3.75 11V6C3.75 4.75736 4.75736 3.75 6 3.75Z" stroke="var(--color1)" stroke-width="1.5"/>
+          <path d="M4 0.75H10C11.7949 0.75 13.25 2.20507 13.25 4V12C13.25 12.6904 12.6904 13.25 12 13.25H4C2.20507 13.25 0.75 11.7949 0.75 10V4C0.75 2.20507 2.20507 0.75 4 0.75Z" stroke="var(--color1)" stroke-width="1.5"/>
+          <rect x="6.75" y="6.75" width="6.5" height="6.5" rx="1.25" stroke="var(--color2)" stroke-width="1.5"/>
+        </svg>             
+      </div>     
+      Apply to all children
+    </label>
+  </div>
 </div>
 </div>
 <div class="footer">

@@ -9,7 +9,7 @@
 // This shows the HTML page in "ui.html".
 figma.showUI(
   __html__,
-  { width: 300, height: 320, title: "Corner rounder" }
+  { width: 300, height: 300, title: "Corner rounder" }
 )
 
 figma.ui.onmessage =  (msg: {type: string, style: string, nested: boolean}) => {
